@@ -2,7 +2,7 @@ Todo React App
 
 # Table of Contents
 
-- [Create React App](#create-react-app)
+- [Create Project](#create-project)
 
 ## Create Project
 
