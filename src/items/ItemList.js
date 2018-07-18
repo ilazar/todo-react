@@ -15,6 +15,7 @@ class ItemList extends Component {
   }
 
   componentDidMount() {
+    console.log('ItemList componentDidMount');
     this.itemRestClient.search({})
       .then(items => this.setState({ items }))
       .catch(error => this.setState({ error }));
