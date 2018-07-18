@@ -2,6 +2,7 @@
 
 - [Create Project](#create-project)
 - [State and Lifecycle](#state-and-lifecycle)
+- [Props and Keys](#props-and-eys)
 
 ## Create Project
 
@@ -22,3 +23,12 @@
 - Add `items/ItemList` component
 - Use `items/ItemRestClient` to fetch data from server
 - Use `core/Loading,ErrorDetail` components
+
+## Props and Keys
+
+- See [Functional Components](https://reactjs.org/docs/components-and-props.html)
+- See [List and Keys](https://reactjs.org/docs/lists-and-keys.html)
+- Add `items/ItemView` component
+- Pass properties and callbacks from parent components to child components
+- Handle events
+- [Typecheking With PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html)

@@ -5,4 +5,7 @@ const getMessage = error => (error.issues
   : error.message || 'Service unavailable'
 );
 
-export const ErrorDetail = error => (<div>Error {getMessage(error)}</div>);
+export const ErrorDetail = error => {
+  console.error('ErrorDetail', error);
+  return (<div>Error {getMessage(error)}</div>);
+};
