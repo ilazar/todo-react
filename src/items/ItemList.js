@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { ErrorDetail, Loading } from '../core';
 import { ItemRestClient } from './ItemRestClient';
+import Item from './Item';
 
 const ItemContainer = styled.div`
   text-align: center;
@@ -34,6 +35,21 @@ class ItemList extends Component {
     console.log('ItemList componentWillUnmount, pending searches must be cancelled :(');
   }
 
+  onStatusChange = async itemId => {
+    const { items } = this.state;
+    const item = items.find(it => it.id === itemId);
+    this.itemRestClient.update({ ...item, isActive: !item.isActive })
+      .then(updatedItem => {
+        const index = items.findIndex(it => it.id === itemId);
+        if (index !== -1) {
+          const newItems = items.slice();
+          newItems.splice(index, 1, updatedItem);
+          this.setState({ items:  newItems});
+        }
+      })
+      .catch(error => this.setState({ error }));
+  };
+
   render() {
     const { error, items } = this.state;
     if (error) {
@@ -47,7 +63,9 @@ class ItemList extends Component {
     console.log('ItemList render items');
     return (
       <ItemContainer>
-        {JSON.stringify(items)}
+        {items.map(item => (
+          <Item key={item.id} item={item} onStatusChange={this.onStatusChange} />))
+        }
       </ItemContainer>
     );
   }
