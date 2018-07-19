@@ -2,7 +2,8 @@
 
 - [Create Project](#create-project)
 - [State and Lifecycle](#state-and-lifecycle)
-- [Props and Keys](#props-and-eys)
+- [Props and Keys](#props-and-keys)
+- [Handling Events](#handling-events)
 
 ## Create Project
 
@@ -28,7 +29,13 @@
 
 - See [Functional Components](https://reactjs.org/docs/components-and-props.html)
 - See [List and Keys](https://reactjs.org/docs/lists-and-keys.html)
-- Add `items/ItemView` component
+- Add `items/Item` component
 - Pass properties and callbacks from parent components to child components
 - Handle events
 - [Typecheking With PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html)
+
+## Handling Events
+
+- See [Forms - Controlled Components](https://reactjs.org/docs/forms.html)
+- See [Handling Events](https://reactjs.org/docs/handling-events.html)
+- Add `items/ItemEdit` component
