@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { ErrorDetail, Loading } from '../core';
+import { ErrorDetail, InputText, Loading } from '../core';
 import { ItemRestClient } from './ItemRestClient';
 import Item from './Item';
 
-const ItemContainer = styled.div`
+const ItemListContainer = styled.div`
   text-align: center;
 `;
 
@@ -35,7 +35,7 @@ class ItemList extends Component {
     console.log('ItemList componentWillUnmount, pending searches must be cancelled :(');
   }
 
-  onStatusChange = async itemId => {
+  handleStatusChange = itemId => {
     const { items } = this.state;
     const item = items.find(it => it.id === itemId);
     this.itemRestClient.update({ ...item, isActive: !item.isActive })
@@ -50,8 +50,15 @@ class ItemList extends Component {
       .catch(error => this.setState({ error }));
   };
 
+  handleNewItem = async (text) => {
+    const { items } = this.state;
+    return this.itemRestClient.create({ text, isActive: true })
+      .then(createdItem => this.setState({ items:  [createdItem, ...items] }))
+      .catch(error => this.setState({ error }));
+  };
+
   render() {
-    const { error, items } = this.state;
+    const { error, items, newItemText } = this.state;
     if (error) {
       console.log('ItemList render error');
       return <ErrorDetail error={error} />;
@@ -62,11 +69,12 @@ class ItemList extends Component {
     }
     console.log('ItemList render items');
     return (
-      <ItemContainer>
+      <ItemListContainer>
+        <InputText value={newItemText} onSubmit={this.handleNewItem}/>
         {items.map(item => (
-          <Item key={item.id} item={item} onStatusChange={this.onStatusChange} />))
+          <Item key={item.id} item={item} onStatusChange={this.handleStatusChange} />))
         }
-      </ItemContainer>
+      </ItemListContainer>
     );
   }
 }
