@@ -4,6 +4,7 @@
 - [State and Lifecycle](#state-and-lifecycle)
 - [Props and Keys](#props-and-keys)
 - [Handling Events](#handling-events)
+- [Using Redux](#using-redux)
 
 ## Create Project
 
@@ -39,3 +40,10 @@
 - See [Forms - Controlled Components](https://reactjs.org/docs/forms.html)
 - See [Handling Events](https://reactjs.org/docs/handling-events.html)
 - Add `items/ItemEdit` component
+
+## Using Redux
+
+- See [flux architecture](https://scotch.io/tutorials/getting-to-know-flux-the-react-js-architecture)
+- See [redux](https://redux.js.org/)
+- See [react-redux](https://github.com/reduxjs/react-redux)
+- See [react-thunk](https://github.com/reduxjs/redux-thunk)

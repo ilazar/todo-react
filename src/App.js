@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import ItemList from './items/ItemList';
+import store from './store';
 
 const AppContainer = styled.div`
   text-align: center;
@@ -27,7 +28,7 @@ class App extends Component {
           <h1>Todo React App</h1>
         </AppHeader>
         <AppContent>
-          <ItemList />
+          <ItemList store={store} />
         </AppContent>
       </AppContainer>
     );
